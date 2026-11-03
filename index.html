@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elige tu destino</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="card">
+    <h1 class="title">Elige tu destino</h1>
+    <p class="subtitle">Haz clic en uno de los dos botones para probar tu suerte</p>
+
+    <div class="buttons-container">
+      <button id="btn-red" class="btn btn-red" aria-label="Elegir botón rojo">
+        <span class="btn-text">Rojo</span>
+      </button>
+      <button id="btn-blue" class="btn btn-blue" aria-label="Elegir botón azul">
+        <span class="btn-text">Azul</span>
+      </button>
+    </div>
+
+    <div id="result-container" class="result-container hidden" aria-live="polite">
+      <p id="result-message" class="result-message"></p>
+      <button id="btn-reset" class="btn btn-reset">Volver a jugar</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
