@@ -4,9 +4,21 @@ const btnBlue = document.getElementById('btn-blue');
 const btnReset = document.getElementById('btn-reset');
 const resultContainer = document.getElementById('result-container');
 const resultMessage = document.getElementById('result-message');
+const resultEmojis = document.getElementById('result-emojis');
 
-// Posibles resultados
-const RESULTADOS = ['Has ganado', 'Has perdido'];
+// Posibles resultados con sus textos, clases y emojis
+const RESULTADOS = [
+  {
+    mensaje: '¡Has acertado!',
+    clase: 'result-win',
+    emojis: '😄 😊 😁 🥳'
+  },
+  {
+    mensaje: '¡Has perdido!',
+    clase: 'result-lose',
+    emojis: '😈 👿 👺 👹'
+  }
+];
 
 /**
  * Maneja la selección del usuario
@@ -18,17 +30,12 @@ function handleChoice() {
 
   // Seleccionar aleatoriamente entre ganar o perder
   const indiceAleatorio = Math.floor(Math.random() * RESULTADOS.length);
-  const resultado = RESULTADOS[indiceAleatorio];
+  const seleccion = RESULTADOS[indiceAleatorio];
 
-  // Mostrar mensaje de resultado
-  resultMessage.textContent = resultado;
-  resultMessage.className = 'result-message';
-
-  if (resultado === 'Has ganado') {
-    resultMessage.classList.add('result-win');
-  } else {
-    resultMessage.classList.add('result-lose');
-  }
+  // Mostrar mensaje y emojis correspondientes
+  resultMessage.textContent = seleccion.mensaje;
+  resultMessage.className = `result-message ${seleccion.clase}`;
+  resultEmojis.textContent = seleccion.emojis;
 
   // Revelar contenedor de resultado y botón de reinicio
   resultContainer.classList.remove('hidden');
@@ -42,6 +49,7 @@ function resetGame() {
   resultContainer.classList.add('hidden');
   resultMessage.textContent = '';
   resultMessage.className = 'result-message';
+  resultEmojis.textContent = '';
 
   // Habilitar los botones de elección
   btnRed.disabled = false;
